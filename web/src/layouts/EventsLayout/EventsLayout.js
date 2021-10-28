@@ -7,6 +7,7 @@ const EventsLayout = ({ children }) => {
   return (
     <div className="rw-scaffold">
       <Toaster />
+      <img src="/MakoTracker-512x512.png" />
       <div className="grid grid-cols-4 mx-4 my-6">
         <CreateEvent type="PEE">💦 Pee</CreateEvent>
         <CreateEvent type="POOP">💩 Poop</CreateEvent>
