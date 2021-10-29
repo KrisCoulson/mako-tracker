@@ -2,6 +2,11 @@
   normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
 */
 
+html, body, #redwood-app {
+  height: 100%;
+  overflow: hidden;
+}
+
 .rw-scaffold *,
 .rw-scaffold ::after,
 .rw-scaffold ::before {

@@ -1,12 +1,7 @@
 import { db } from 'src/lib/db'
 import { startOfDay, endOfDay } from 'date-fns'
 export const events = () => {
-  const date  = new Date('2021-10-28')
-
-  console.log(date)
-  console.log(new Date())
-
-
+  const date  = new Date()
 
   return db.event.findMany(
     {
@@ -16,6 +11,9 @@ export const events = () => {
           lt:  endOfDay(date)
         },
       },
+      orderBy: {
+        date: 'desc'
+      }
     }
   )
 }

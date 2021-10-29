@@ -28,7 +28,7 @@ const CreateEvent = ({ type, children }) => {
     createEvent({ variables: { input: { type, date } } })
   }
   return (
-    <button className="py-2 px-3 bg-gray-300 border-2 border-gray-500 rounded mr-3" onClick={handleCreate}>{ children }</button>
+    <button className="py-2 px-3 bg-gray-300 border-2 border-gray-500 rounded flex flex-col items-center justify-center" onClick={handleCreate}>{ children }</button>
   )
 }
 
