@@ -1,7 +1,9 @@
 import { db } from 'src/lib/db'
 import { endOfToday, endOfYesterday, startOfToday, startOfTomorrow, startOfYesterday } from 'date-fns'
 import { zonedTimeToUtc } from 'date-fns-tz'
+import { logger } from 'src/lib/logger'
 export const events = () => {
+  logger.info({ start: startOfToday(), end: endOfToday(), date: new Date()})
   return db.event.findMany(
     {
       where: {
