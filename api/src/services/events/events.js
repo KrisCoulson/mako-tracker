@@ -1,7 +1,8 @@
 import { db } from 'src/lib/db'
 import { startOfDay, endOfDay } from 'date-fns'
+import { zonedTimeToUtc} from 'date-fns-tz'
 export const events = () => {
-  const date  = new Date()
+  const date = zonedTimeToUtc(new Date(), 'America/Los_Angeles')
 
   return db.event.findMany(
     {

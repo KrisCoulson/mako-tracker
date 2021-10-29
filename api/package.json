@@ -5,6 +5,7 @@
   "dependencies": {
     "@redwoodjs/api": "0.37.5",
     "@redwoodjs/graphql-server": "0.37.5",
-    "date-fns": "^2.25.0"
+    "date-fns": "^2.25.0",
+    "date-fns-tz": "^1.1.6"
   }
 }
