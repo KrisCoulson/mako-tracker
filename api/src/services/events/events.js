@@ -1,5 +1,5 @@
 import { db } from 'src/lib/db'
-import { startOfToday, startOfTomorrow } from 'date-fns'
+import { startOfToday, startOfTomorrow, startOfYesterday } from 'date-fns'
 import { zonedTimeToUtc} from 'date-fns-tz'
 export const events = () => {
 
@@ -7,7 +7,7 @@ export const events = () => {
     {
       where: {
         createdAt: {
-          gte: startOfToday(),
+          gte: startOfYesterday(),
           lt:  startOfTomorrow()
         },
       },
