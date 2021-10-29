@@ -51,6 +51,7 @@ const EventsList = ({ events }) => {
 
   return (
     <div className="">
+      {JSON.stringify(events)}
       {events.map((event) => (
         <div key={event.id} className="flex bg-gray-100 border-2 border-gray-300 p-3 rounded items-center mb-4">
           <div className="border-r-2 pr-2 border-gray-300 text-4xl">{TYPES[event.type]}</div>

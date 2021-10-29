@@ -14,7 +14,7 @@ const EventsLayout = ({ children }) => {
         <div className="mx-4 mb-4 text-xl font-bold">
           {format(new Date, 'MM/dd/yyyy')}
         </div>
-        <div className="flex-auto overflow-y-scroll" style={{"WebkitOverflowScrolling": "touch"}}>
+        <div className="flex-auto overflow-auto">
           <main className="rw-main">{children}</main>
         </div>
       </div>
