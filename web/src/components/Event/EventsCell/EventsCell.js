@@ -2,9 +2,14 @@ import { Link, routes } from '@redwoodjs/router'
 
 import Events from 'src/components/Event/Events'
 
+
+export const beforeQuery = (props) => {
+  return { variables: { input: {...props}}, fetchPolicy: 'no-cache', pollInterval: 2500 }
+}
+
 export const QUERY = gql`
-  query FindEvents {
-    events {
+  query FindEvents($input: EventsInput){
+    events(input: $input) {
       id
       type
       date

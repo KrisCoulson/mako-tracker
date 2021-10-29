@@ -1,9 +1,10 @@
 import EventsCell from 'src/components/Event/EventsCell'
+import { startOfToday, endOfToday } from 'date-fns'
 const EventsPage = () => {
   return(
     <>
 
-      <EventsCell />
+      <EventsCell start={startOfToday()} end={endOfToday()} />
     </>
   )
 }

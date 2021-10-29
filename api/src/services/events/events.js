@@ -2,14 +2,14 @@ import { db } from 'src/lib/db'
 import { endOfToday, endOfYesterday, startOfToday, startOfTomorrow, startOfYesterday } from 'date-fns'
 import { zonedTimeToUtc } from 'date-fns-tz'
 import { logger } from 'src/lib/logger'
-export const events = () => {
-  logger.info({ start: startOfToday(), end: endOfToday(), date: new Date()})
+export const events = ({ input: { start, end }}) => {
+  logger.info({ start, end })
   return db.event.findMany(
     {
       where: {
         date: {
-          gte: startOfToday(),
-          lt:  endOfToday()
+          gte: start,
+          lt:  end
         },
       },
       orderBy: {

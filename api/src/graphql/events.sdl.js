@@ -8,8 +8,13 @@ export const schema = gql`
   }
 
   type Query {
-    events: [Event!]! @requireAuth
+    events(input: EventsInput): [Event!]! @requireAuth
     event(id: Int!): Event @requireAuth
+  }
+
+  input EventsInput {
+    start: DateTime!
+    end: DateTime!
   }
 
   input CreateEventInput {
