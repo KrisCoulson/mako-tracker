@@ -1,10 +1,13 @@
 import { Link, routes } from '@redwoodjs/router'
 
 import Events from 'src/components/Event/Events'
+import { startOfToday, endOfToday } from 'date-fns'
 
 
-export const beforeQuery = (props) => {
-  return { variables: { input: {...props}}, fetchPolicy: 'no-cache', pollInterval: 2500 }
+export const beforeQuery = () => {
+  const start = startOfToday()
+  const end = endOfToday()
+  return { variables: { input: { start, end }} }
 }
 
 export const QUERY = gql`
