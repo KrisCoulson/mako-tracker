@@ -14,11 +14,11 @@ const EventsLayout = ({ children }) => {
         <div className="mx-4 mb-4 text-xl font-bold">
           {format(new Date, 'MM/dd/yyyy')}
         </div>
-        <div className="flex-auto overflow-auto">
+        <div className="flex-auto overflow-y-scroll" style={{"WebkitOverflowScrolling": "touch"}}>
           <main className="rw-main">{children}</main>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 bg-white">
+      <div className="absolute bottom-0 left-0 bg-white w-full">
         <div className="grid grid-cols-4 gap-4 m-4">
           <CreateEvent type="PEE">💦 <span>Pee</span></CreateEvent>
           <CreateEvent type="POOP">💩 <span>Poop</span></CreateEvent>
