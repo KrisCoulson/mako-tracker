@@ -1,14 +1,13 @@
 import { db } from 'src/lib/db'
-import { startOfToday, startOfTomorrow, startOfYesterday } from 'date-fns'
-import { zonedTimeToUtc} from 'date-fns-tz'
+import { endOfToday, endOfYesterday, startOfToday, startOfTomorrow, startOfYesterday } from 'date-fns'
+import { zonedTimeToUtc } from 'date-fns-tz'
 export const events = () => {
-
   return db.event.findMany(
     {
       where: {
-        createdAt: {
-          gte: startOfYesterday(),
-          lt:  startOfTomorrow()
+        date: {
+          gte: startOfToday(),
+          lt:  endOfToday()
         },
       },
       orderBy: {
