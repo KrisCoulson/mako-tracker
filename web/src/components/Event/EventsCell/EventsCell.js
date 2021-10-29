@@ -1,12 +1,8 @@
 import { Link, routes } from '@redwoodjs/router'
 
 import Events from 'src/components/Event/Events'
-import { startOfToday, endOfToday } from 'date-fns'
 
-
-export const beforeQuery = () => {
-  const start = startOfToday()
-  const end = endOfToday()
+export const beforeQuery = ({ start, end }) => {
   return { variables: { input: { start, end }} }
 }
 
@@ -39,6 +35,6 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ events }) => {
-  return <Events events={events} />
+export const Success = ({ events, start, end }) => {
+  return <Events events={events} start={start} end={end} />
 }

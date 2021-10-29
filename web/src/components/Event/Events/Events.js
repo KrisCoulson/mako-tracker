@@ -28,7 +28,7 @@ const TYPES = {
   SLEEP: '💤'
 }
 
-const EventsList = ({ events }) => {
+const EventsList = ({ events, start, end }) => {
   const [deleteEvent] = useMutation(DELETE_EVENT_MUTATION, {
     onCompleted: () => {
       toast.success('Event deleted')
@@ -39,7 +39,7 @@ const EventsList = ({ events }) => {
     // This refetches the query on the list page. Read more about other ways to
     // update the cache over here:
     // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
-    refetchQueries: [{ query: QUERY }],
+    refetchQueries: [{ query: QUERY,  variables: { input: { start, end }} }],
     awaitRefetchQueries: true,
   })
 

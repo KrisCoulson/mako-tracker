@@ -1,7 +1,7 @@
 import { useMutation } from "@redwoodjs/web"
 import { toast } from "@redwoodjs/web/toast"
 import { QUERY } from "../Event/EventsCell/EventsCell"
-
+import { startOfToday, endOfToday } from "date-fns"
 const CREATE_EVENT_MUTATION = gql`
   mutation CreateEventMutation($input: CreateEventInput!) {
     createEvent(input: $input) {
@@ -10,9 +10,9 @@ const CREATE_EVENT_MUTATION = gql`
   }
 `
 
-const CreateEvent = ({ type, children }) => {
+const CreateEvent = ({ type, start, end, children }) => {
   const [createEvent, { loading, error }] = useMutation(CREATE_EVENT_MUTATION, {
-    refetchQueries: [{ query: QUERY }],
+    refetchQueries: [{ query: QUERY, variables: { input: { start: startOfToday(), end: endOfToday()}} }],
     awaitRefetchQueries: true,
     onCompleted: () => {
       toast.success('Event created')
