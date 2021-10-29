@@ -12,7 +12,7 @@ export const events = () => {
   //   oldLt: endOfDay(new Date('2021-10-28'))
   // })
 
-  const date = new Date('2021-10-28')
+  const date = new Date('2021-10-29')
   return db.event.findMany(
     {
       where: {
