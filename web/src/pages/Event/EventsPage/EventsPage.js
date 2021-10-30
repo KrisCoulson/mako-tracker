@@ -1,10 +1,12 @@
+import { useContext  } from 'react'
+import { DateContext } from 'src/layouts/EventsLayout'
 import EventsCell from 'src/components/Event/EventsCell'
-import { startOfToday, endOfToday } from 'date-fns'
+import { startOfToday, endOfToday, startOfDay, endOfDay } from 'date-fns'
 
 const EventsPage = () => {
-  const start = startOfToday()
-  const end = endOfToday()
-
+  const [date] = useContext(DateContext)
+  const start = startOfDay(new Date(date))
+  const end = endOfDay(new Date(date))
   return(
     <>
       <EventsCell start={start} end={end} />
